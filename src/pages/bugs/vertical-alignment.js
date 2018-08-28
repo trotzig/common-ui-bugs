@@ -1,9 +1,9 @@
 import React from 'react';
 
+import BugPage from '../../components/BugPage';
+
 const VerticalAlignmentPage = () => (
-  <div>
-    Hello world
-  </div>
+  <BugPage id="vertical-alignment"/>
 );
 
 export default VerticalAlignmentPage;

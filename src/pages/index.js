@@ -1,21 +1,8 @@
-import React from 'react';
-import Link from 'gatsby-link';
 import Card, { CardTitle, CardBlock, CardImage} from 'mineral-ui/Card';
+import Link from 'gatsby-link';
+import React from 'react';
 
-import verticalAlignmentImage from '../images/verticalAlignment.png';
-
-const BUGS = [
-  {
-    title: 'Vertical alignment between icon and label',
-    image: verticalAlignmentImage,
-    path: '/bugs/vertical-alignment',
-  },
-  {
-    title: 'The z-index bug, or "How I Learned To Use 9999999"',
-    image: verticalAlignmentImage,
-    path: '/bugs/z-index',
-  },
-];
+import BUGS from '../BUGS';
 
 const IndexPage = () => (
   <div>
@@ -28,17 +15,20 @@ const IndexPage = () => (
         gridRowGap: '20px',
       }}
     >
-      {BUGS.map(({ title, image, path }) => (
+      {Object.keys(BUGS).map((key) => ({ ...BUGS[key], key })).map(({ key, title, render, css }) => (
         <Link
-          key={title}
-          to={path}
+          key={key}
+          to={`/bugs/${key}`}
           css={{
             textDecoration: 'none',
           }}
         >
           <Card>
             <CardTitle>{title}</CardTitle>
-            <CardImage src={image} />
+            <CardBlock>
+              {render()}
+            </CardBlock>
+            <style>{css.bug.styles}</style>
           </Card>
         </Link>
       ))}

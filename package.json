@@ -11,6 +11,7 @@
     "gatsby-plugin-glamor": "^1.6.13",
     "gatsby-plugin-react-helmet": "^2.0.11",
     "mineral-ui": "^0.42.0",
+    "mineral-ui-icons": "^0.4.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-emotion": "^9.2.8",
