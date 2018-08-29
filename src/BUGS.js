@@ -52,41 +52,52 @@ export default {
   'z-index': {
     title: 'Z-index issues',
     render: () => (
-      <div className="elem" css={{
-        position: 'relative',
-        minHeight: 130,
-      }}>
-        <div className="elem-1" css={{
-          position: 'absolute',
-          top: 10,
-          right: 140,
-          padding: 10,
-          width: 100,
-          background: '#fff',
-          border: '1px solid #ccc',
-        }}>
+      <div
+        className="elem"
+        css={{
+          position: 'relative',
+          minHeight: 130,
+        }}
+      >
+        <div
+          className="elem-1"
+          css={{
+            position: 'absolute',
+            top: 10,
+            right: 140,
+            padding: 10,
+            width: 100,
+            background: '#fff',
+            border: '1px solid #ccc',
+          }}
+        >
           I'm an element on the page
         </div>
-        <div className="elem-2" css={{
-          position: 'absolute',
-          top: 10,
-          right: 20,
-          padding: 10,
-          width: 100,
-          background: '#fff',
-          border: '1px solid #ccc',
-        }}>
+        <div
+          className="elem-2"
+          css={{
+            position: 'absolute',
+            top: 10,
+            right: 20,
+            padding: 10,
+            width: 100,
+            background: '#fff',
+            border: '1px solid #ccc',
+          }}
+        >
           I'm a different element on the page
         </div>
-        <nav css={{
-          background: '#c52774',
-          color: 'white',
-          minHeight: 48,
-          display: 'flex',
-          alignItems: 'center',
-          padding: '0 20px',
-          position: 'relative',
-        }}>
+        <nav
+          css={{
+            background: '#c52774',
+            color: 'white',
+            minHeight: 48,
+            display: 'flex',
+            alignItems: 'center',
+            padding: '0 20px',
+            position: 'relative',
+          }}
+        >
           <IconMenu size={30} />
           <b css={{ marginLeft: 10 }}>I'm a navbar</b>
         </nav>
@@ -109,7 +120,7 @@ export default {
 .elem nav {
   position: relative;
 }
-        `
+        `,
       },
       brooklyn999999: {
         label: 'Dance the z-index dance',
@@ -120,10 +131,52 @@ export default {
 .elem-2 {
   z-index: 9999999
 }
-        `
-      }
+        `,
+      },
+    },
+    path: '/bugs/z-index',
+  },
+  'overflowing-urls': {
+    title: 'Overflowing URLs',
+    render: () => (
+      <div
+        className="elem"
+        css={{
+          maxWidth: 240,
+          fontFamily: 'serif',
+          position: 'relative',
+          border: '1px solid #ccc',
+          padding: 10,
+        }}
+      >
+        Check out this cool cat that I found while googling for something completely different:{' '}
+        <a href="https://www.google.se/search?q=happo+screenshot+testing&foo=asdfklasjdflkasdflkasdlfkjasldkflaskdfjlaksjdflkajsdlfkjalsdkfjlaksdjflkasjdlfkjasdlfkjalsdkfjlaskdjflakjdflkajsdlfk">
+          https://www.google.se/search?q=happo+screenshot+testing&foo=asdfklasjdflkasdflkasdlfkjasldkflaskdfjlaksjdflkajsdlfkjalsdkfjlaksdjflkasjdlfkjasdlfkjalsdkfjlaskdjflakjdflkajsdlfk
+        </a>. Isn't it cute?
+      </div>
+    ),
+    css: {
+      bug: {
+        styles: `
+        `,
+      },
+      breakWords: {
+        label: 'Break words',
+        styles: `
+.elem a[href^="https:"] {
+  word-wrap: break-word;
+}
+        `,
+      },
+      hideOverflow: {
+        label: 'Hide the overflow',
+        styles: `
+.elem {
+  overflow: hidden;
+}
+        `,
+      },
     },
     path: '/bugs/z-index',
   },
 };
-
