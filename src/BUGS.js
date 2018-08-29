@@ -1,14 +1,22 @@
 import IconCheck from 'mineral-ui-icons/IconCheck';
 import IconMenu from 'mineral-ui-icons/IconMenu';
+import IconFace from 'mineral-ui-icons/IconFace';
 
 export default {
   'vertical-alignment': {
     title: 'Vertical alignment',
     render: () => (
-      <span className="elem" css={{ color: '#c52774', fontSize: '18px', minHeight: 40 }}>
+      <div
+        className="elem"
+        css={{
+          color: '#c52774',
+          fontSize: '18px',
+          minHeight: 40,
+        }}
+      >
         <IconCheck size={34} />
         <b css={{ color: '#666' }}>All good!</b>
-      </span>
+      </div>
     ),
     css: {
       bug: {
@@ -163,7 +171,7 @@ export default {
       breakWords: {
         label: 'Break words',
         styles: `
-.elem a[href^="https:"] {
+.elem a[href^="http"] {
   word-wrap: break-word;
 }
         `,
@@ -173,6 +181,64 @@ export default {
         styles: `
 .elem {
   overflow: hidden;
+}
+        `,
+      },
+    },
+    path: '/bugs/z-index',
+  },
+  'long-dynamic-text': {
+    title: 'Long dynamic texts',
+    render: () => (
+      <div
+        className="elem"
+        css={{
+          maxWidth: 230,
+        }}
+      >
+        <nav
+          css={{
+            background: '#c52774',
+            color: '#fff',
+            height: 48,
+            display: 'flex',
+            alignItems: 'center',
+            padding: '0 20px',
+            position: 'relative',
+            '& svg': {
+              flexShrink: 0,
+            }
+          }}
+        >
+          <IconMenu size={30} />
+          <b css={{ margin: '0 10px', flexGrow: 1 }}>
+            Yael Rebecca Levy-Zaubermann
+          </b>
+          <IconFace size={30} />
+        </nav>
+      </div>
+    ),
+    css: {
+      bug: {
+        styles: `
+        `,
+      },
+      ellipsize: {
+        label: 'Ellipsize',
+        styles: `
+.elem b {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+        `,
+      },
+      hideOverflow: {
+        label: 'Horizontal scroll',
+        styles: `
+.elem b {
+  white-space: nowrap;
+  overflow-x: auto;
 }
         `,
       },
