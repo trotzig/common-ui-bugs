@@ -1,10 +1,11 @@
 import IconDeleteForever from 'mineral-ui-icons/IconDeleteForever';
+import IconMenu from 'mineral-ui-icons/IconMenu';
 
 export default {
   'vertical-alignment': {
-    title: 'Vertical alignment between icon and label',
+    title: 'Vertical alignment',
     render: () => (
-      <span className="valign" css={{ fontSize: '18px', minHeight: 40 }}>
+      <span className="elem" css={{ fontSize: '18px', minHeight: 40 }}>
         <IconDeleteForever size="3em" />
         <b>Remove forever</b>
       </span>
@@ -12,15 +13,15 @@ export default {
     css: {
       bug: {
         styles: `
-.valign svg {
-  vertical-align: middle;
+.elem svg {
+  vertical-align: baseline;
 }
         `,
       },
       flex: {
-        label: 'Use a flex layout',
+        label: 'Use flexbox',
         styles: `
-.valign {
+.elem {
   display: inline-flex;
   align-items: center;
 }
@@ -29,17 +30,17 @@ export default {
       positionAbsolute: {
         label: 'Use absolute positioning',
         styles: `
-.valign {
+.elem {
   display: inline-block;
   position: relative;
 }
-.valign svg {
+.elem svg {
    position: absolute;
    left: 0;
    top: 50%;
    transform: translateY(-50%);
 }
-.valign b {
+.elem b {
   margin-left: 48px;
   line-height: 48px;
 }
@@ -49,17 +50,78 @@ export default {
     path: '/bugs/vertical-alignment',
   },
   'z-index': {
-    title: 'The z-index bug, or "How I Learned To Use 9999999"',
+    title: 'Z-index issues',
     render: () => (
-      <span className="z-index">
-        <IconDeleteForever />
-      </span>
+      <div className="elem" css={{
+        position: 'relative',
+        minHeight: 200,
+      }}>
+        <div className="elem-1" css={{
+          position: 'absolute',
+          top: 10,
+          right: 140,
+          padding: 10,
+          width: 100,
+          background: '#fff',
+          border: '1px solid #ccc',
+        }}>
+          I'm an element on the page
+        </div>
+        <div className="elem-2" css={{
+          position: 'absolute',
+          top: 10,
+          right: 20,
+          padding: 10,
+          width: 100,
+          background: '#fff',
+          border: '1px solid #ccc',
+        }}>
+          I'm a different element on the page
+        </div>
+        <nav css={{
+          background: '#c52774',
+          color: 'white',
+          minHeight: 48,
+          display: 'flex',
+          alignItems: 'center',
+          padding: '0 20px',
+          position: 'relative',
+        }}>
+          <IconMenu size={30} />
+          <b css={{ marginLeft: 10 }}>I'm a navbar</b>
+        </nav>
+      </div>
     ),
     css: {
-      bug: `
-        .z-index {
-        }
-      `
+      bug: {
+        styles: `
+.elem-2 {
+  z-index: 2;
+}
+.elem nav {
+  z-index: 1;
+}
+        `,
+      },
+      stackingContexts: {
+        label: 'Use DOM order + stacking contexts',
+        styles: `
+.elem nav {
+  position: relative;
+}
+        `
+      },
+      brooklyn999999: {
+        label: 'Dance the z-index dance',
+        styles: `
+.elem nav {
+  z-index: 99999999999;
+}
+.elem-2 {
+  z-index: 9999999
+}
+        `
+      }
     },
     path: '/bugs/z-index',
   },
