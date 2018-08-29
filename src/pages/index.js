@@ -30,7 +30,9 @@ const IndexPage = () => (
             <Card>
               <CardTitle>{title}</CardTitle>
               <CardBlock>
-                {render()}
+                <div css={{ minHeight: 170 }}>
+                  {render()}
+                </div>
               </CardBlock>
               <style>{css.bug.styles}</style>
             </Card>

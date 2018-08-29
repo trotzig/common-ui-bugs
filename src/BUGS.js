@@ -1,13 +1,13 @@
-import IconDeleteForever from 'mineral-ui-icons/IconDeleteForever';
+import IconCheck from 'mineral-ui-icons/IconCheck';
 import IconMenu from 'mineral-ui-icons/IconMenu';
 
 export default {
   'vertical-alignment': {
     title: 'Vertical alignment',
     render: () => (
-      <span className="elem" css={{ fontSize: '18px', minHeight: 40 }}>
-        <IconDeleteForever size="3em" />
-        <b>Remove forever</b>
+      <span className="elem" css={{ color: '#c52774', fontSize: '18px', minHeight: 40 }}>
+        <IconCheck size={34} />
+        <b css={{ color: '#666' }}>All good!</b>
       </span>
     ),
     css: {
@@ -41,8 +41,8 @@ export default {
    transform: translateY(-50%);
 }
 .elem b {
-  margin-left: 48px;
-  line-height: 48px;
+  margin-left: 34px;
+  line-height: 40px;
 }
         `,
       },
@@ -54,7 +54,7 @@ export default {
     render: () => (
       <div className="elem" css={{
         position: 'relative',
-        minHeight: 200,
+        minHeight: 130,
       }}>
         <div className="elem-1" css={{
           position: 'absolute',
