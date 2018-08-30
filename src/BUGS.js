@@ -7,7 +7,7 @@ export default {
     title: 'Vertical alignment',
     render: () => (
       <div
-        className="elem"
+        className="valign"
         css={{
           color: '#c52774',
           fontSize: '18px',
@@ -21,7 +21,7 @@ export default {
     css: {
       bug: {
         styles: `
-.elem svg {
+.valign svg {
   vertical-align: baseline;
 }
         `,
@@ -29,7 +29,7 @@ export default {
       flex: {
         label: 'Use flexbox',
         styles: `
-.elem {
+.valign {
   display: inline-flex;
   align-items: center;
 }
@@ -38,17 +38,17 @@ export default {
       positionAbsolute: {
         label: 'Use absolute positioning',
         styles: `
-.elem {
+.valign {
   display: inline-block;
   position: relative;
 }
-.elem svg {
+.valign svg {
    position: absolute;
    left: 0;
    top: 50%;
    transform: translateY(-50%);
 }
-.elem b {
+.valign b {
   margin-left: 34px;
   line-height: 40px;
 }
@@ -60,14 +60,14 @@ export default {
     title: 'Z-index issues',
     render: () => (
       <div
-        className="elem"
+        className="zindex"
         css={{
           position: 'relative',
           minHeight: 130,
         }}
       >
         <div
-          className="elem-1"
+          className="zindex-1"
           css={{
             position: 'absolute',
             top: 10,
@@ -81,7 +81,7 @@ export default {
           I'm an element on the page
         </div>
         <div
-          className="elem-2"
+          className="zindex-2"
           css={{
             position: 'absolute',
             top: 10,
@@ -113,10 +113,10 @@ export default {
     css: {
       bug: {
         styles: `
-.elem-2 {
+.zindex-2 {
   z-index: 2;
 }
-.elem nav {
+.zindex nav {
   z-index: 1;
 }
         `,
@@ -124,7 +124,7 @@ export default {
       stackingContexts: {
         label: 'Use DOM order + stacking contexts',
         styles: `
-.elem nav {
+.zindex nav {
   position: relative;
 }
         `,
@@ -132,10 +132,10 @@ export default {
       brooklyn999999: {
         label: 'Dance the z-index dance',
         styles: `
-.elem nav {
+.zindex nav {
   z-index: 99999999999;
 }
-.elem-2 {
+.zindex-2 {
   z-index: 9999999
 }
         `,
@@ -146,7 +146,7 @@ export default {
     title: 'Overflowing URLs',
     render: () => (
       <div
-        className="elem"
+        className="overflow"
         css={{
           maxWidth: 240,
           fontFamily: 'serif',
@@ -169,7 +169,7 @@ export default {
       breakWords: {
         label: 'Break words',
         styles: `
-.elem a[href^="http"] {
+.overflow a[href^="http"] {
   word-wrap: break-word;
 }
         `,
@@ -177,7 +177,7 @@ export default {
       hideOverflow: {
         label: 'Hide the overflow',
         styles: `
-.elem {
+.overflow {
   overflow: hidden;
 }
         `,
@@ -188,7 +188,7 @@ export default {
     title: 'Long dynamic texts',
     render: () => (
       <div
-        className="elem"
+        className="longtext"
         css={{
           maxWidth: 230,
         }}
@@ -223,7 +223,7 @@ export default {
       ellipsize: {
         label: 'Ellipsize',
         styles: `
-.elem b {
+.longtext b {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -233,7 +233,7 @@ export default {
       hideOverflow: {
         label: 'Horizontal scroll',
         styles: `
-.elem b {
+.longtext b {
   white-space: nowrap;
   overflow-x: auto;
 }
@@ -245,7 +245,7 @@ export default {
     title: 'Non-responsive images',
     render: () => (
       <div
-        className="elem"
+        className="nonresponsive"
         css={{
           maxWidth: 230,
           fontFamily: 'serif',
@@ -271,10 +271,10 @@ export default {
       switchToBg: {
         label: 'Switch to a background image',
         styles: `
-.elem img {
+.nonresponsive img {
   display: none;
 }
-.elem .placeholder {
+.nonresponsive .placeholder {
   background-image: url(https://placekitten.com/g/400/200);
   background-repeat: no-repeat;
   width: 100%;
@@ -286,7 +286,7 @@ export default {
       widthAuto: {
         label: 'Use max-width',
         styles: `
-.elem img {
+.nonresponsive img {
   max-width: 100%;
 }
         `,
@@ -297,14 +297,14 @@ export default {
     title: 'Static dimensions',
     render: () => (
       <div
-        className="elem"
+        className="static-dimensions"
         css={{
           color: '#c52774',
           fontSize: '18px',
           fontFamily: 'serif',
           padding: '0 20px',
           border: '1px solid #ccc',
-          lineHeight: '25px',
+          lineHeight: '30px',
           background: '#fff',
         }}
       >
@@ -316,23 +316,23 @@ export default {
     css: {
       bug: {
         styles: `
-.elem {
-  height: 40px;
+.static-dimensions {
+  height: 30px;
 }
         `,
       },
       minHeight: {
         label: 'Use min-height',
         styles: `
-.elem {
-  min-height: 40px;
+.static-dimensions {
+  min-height: 30px;
 }
         `,
       },
       avoid: {
         label: 'Avoid dimensions completely',
         styles: `
-.elem {
+.static-dimensions {
 }
         `,
       },
