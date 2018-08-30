@@ -55,7 +55,6 @@ export default {
         `,
       },
     },
-    path: '/bugs/vertical-alignment',
   },
   'z-index': {
     title: 'Z-index issues',
@@ -73,10 +72,10 @@ export default {
             position: 'absolute',
             top: 10,
             right: 140,
-            padding: 10,
             width: 100,
             background: '#fff',
             border: '1px solid #ccc',
+            padding: 10,
           }}
         >
           I'm an element on the page
@@ -142,7 +141,6 @@ export default {
         `,
       },
     },
-    path: '/bugs/z-index',
   },
   'overflowing-urls': {
     title: 'Overflowing URLs',
@@ -185,7 +183,6 @@ export default {
         `,
       },
     },
-    path: '/bugs/z-index',
   },
   'long-dynamic-text': {
     title: 'Long dynamic texts',
@@ -243,6 +240,103 @@ export default {
         `,
       },
     },
-    path: '/bugs/z-index',
+  },
+  'non-responsive-images': {
+    title: 'Non-responsive images',
+    render: () => (
+      <div
+        className="elem"
+        css={{
+          maxWidth: 230,
+          fontFamily: 'serif',
+          border: '1px solid #ccc',
+          padding: 10,
+        }}
+      >
+        <p>
+          Check out this cat!
+        </p>
+        <div className="placeholder" />
+        <img src="https://placekitten.com/g/400/200" css={{ lineHeight: 0, display: 'block' }} />
+        <p css={{ marginTop: 10 }}>
+          Isn't it cute? I wish there was a way I could own that cat.
+        </p>
+      </div>
+    ),
+    css: {
+      bug: {
+        styles: `
+        `,
+      },
+      switchToBg: {
+        label: 'Switch to a background image',
+        styles: `
+.elem img {
+  display: none;
+}
+.elem .placeholder {
+  background-image: url(https://placekitten.com/g/400/200);
+  background-repeat: no-repeat;
+  width: 100%;
+  padding-top: 50%;
+  background-size: cover;
+}
+        `,
+      },
+      widthAuto: {
+        label: 'Use max-width',
+        styles: `
+.elem img {
+  max-width: 100%;
+}
+        `,
+      },
+    },
+  },
+  'static-dimensions': {
+    title: 'Static dimensions',
+    render: () => (
+      <div
+        className="elem"
+        css={{
+          color: '#c52774',
+          fontSize: '18px',
+          fontFamily: 'serif',
+          padding: '0 20px',
+          border: '1px solid #ccc',
+          lineHeight: '25px',
+          background: '#fff',
+        }}
+      >
+        I'm some text
+        <br />
+        that wraps to two lines
+      </div>
+    ),
+    css: {
+      bug: {
+        styles: `
+.elem {
+  height: 40px;
+}
+        `,
+      },
+      minHeight: {
+        label: 'Use min-height',
+        styles: `
+.elem {
+  min-height: 40px;
+}
+        `,
+      },
+      avoid: {
+        label: 'Avoid dimensions completely',
+        styles: `
+.elem {
+}
+        `,
+      },
+
+    },
   },
 };
